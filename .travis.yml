@@ -43,5 +43,4 @@ addons:
       - master
 script:
   # other script steps might be done before running the actual analysis
-  - ./gradlew connectedCheck
-  - sonar-scanner
+  - ./gradlew connectedCheck sonarqube

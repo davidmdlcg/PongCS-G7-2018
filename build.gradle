@@ -15,6 +15,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "org.sonarqube" version "2.6.2"
+}
+
 allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
@@ -35,6 +39,9 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
+
+
+
 }
 
 project(":desktop") {
@@ -48,6 +55,13 @@ project(":desktop") {
         compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
         
+    }
+
+    sonarqube {
+        properties {
+            property "sonar.projectName", "G7 - desktop"
+            property "sonar.projectKey", "com.urjc.calidad.g7.desktop"
+        }
     }
 }
 
@@ -78,6 +92,12 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86_64"
         
     }
+    sonarqube {
+        properties {
+            property "sonar.projectName", "G7 - android"
+            property "sonar.projectKey", "com.urjc.calidad.g7.android"
+        }
+    }
 }
 
 project(":core") {
@@ -89,6 +109,12 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
         
+    }
+    sonarqube {
+        properties {
+            property "sonar.projectName", "G7 - core"
+            property "sonar.projectKey", "com.urjc.calidad.g7.core"
+        }
     }
 }
 
