@@ -1,4 +1,5 @@
 language: android
+dist: trusty
 android:
   components:
   - build-tools-26.0.2
@@ -24,10 +25,23 @@ deploy:
   provider: releases
   api_key:
     secure: FaqDaJ+Ox4wH/y1ayarB/cTeInTPKeXpfT6s9Tg0VroEECbDtUb18xMjahswV0veDcRJNsGfRQh5umxCBnidcF+BsjfGbmnram9qyw2VTXERJ/UWkzEw9iylixfhaFRD/9S5KwrYI6xdwd7d1I9K8mYznrUaXtYwBJVJEX4I5Yx79MoCVgZ0mmC6733l/iuWW3HdSZAuFGTyexpSxI/aYDAgG5XipmF8aSj/gaBSzRoUOXhSDdSQSl+GU8B4M8DN2+Nyt183iqoX9xI946Qv/QTM2GBUk5Culn7g02XqbJbL2ONupAUFcblVLutliJYq/7PbByGaECbpSqNMpvnCfjHArfT5oZLwmqCJh4CBhl+v4r8VFD2SOijdstlbab1RiLHri9RvLt3ifQW0SBXFx/JQI6rDgUKFq4FUVA+m5TxnaSPchBsHTRQXJs289neNGZhX2hqKoL8hquGDSL8ZZuvLsdmCRtP5+fCZq4356pUQ/T8th2NWUI839Qwjg4riCKwDoKbl7UXYZBDsVi6AAMpdVwMr0X9krXxmVP/UCAwVvlxtuGWxIc1wtzwpNTOiI5DS/rfX86JkAcXonvBFfJPZoRq2C378YgHstnO3CQ8vc7GoZIN2E1fLXhpNK2vVlGCPjSRc0OjY8Gx8y8M3e1XDmAAQlMSwnOcsGxU8JoU=
-  file: android/build/outputs/apk/release/android-release-unsigned.apk
+  # file: android/build/outputs/apk/debug/*.apk
   skip_cleanup: true
   on:
     repo: jjluczyn/PongCS-G7-2018
     branch: master
 after_success:
 - sh magic.sh
+
+addons:
+  sonarcloud:
+    organization: "sergiopaniego-github"
+    token:
+      secure: ppByHxIINheS2UmjNIUAX7KH/QvTG0mR4RW/RqE0tzBTIDUVRQiW5z7jTZTZdr8lWG5cWDpiHjKh7a6J0kGWSjAq2Qbg2x8D14egCKu4Oq7WYaa4HI6KMVjkH1CWJSfX/yPQda03NBRfuarkeDfUm8ZQIp9ydH8EiTvF3jh6bGnhV5O4gTVRWNWO0Ow0K51WIahC8zMHe3Zmj/7X2BBHv3vQe1axN/SfBNwFIZniamZDM0rZIxi8fuiLZoPBdi0WsAAG7HzLcnyCbhpLY9RO+c8aBL2z1a7N/RJlg12Vl/Peaxse6dfieq/bQfKZUFLWt8Ekhy8Q2X0nMouwF8g6k6wouig6LFHsiEUvRYZWYsXp85TL+gILut0AWbm1OaGcbdkW00naYEXJZ9uMRVfWtGV9ELGvRDNa/Mf2V2cvbSzTXgZmsaNSMjhtonaYWGvlxX8SYpHEmEGg99Q+sFbWzvJO8qUoBULD3R5vLjh4WfzsaMVhcSbbenI1/8LGXInRyw1B5Hd5DdpdnrwQc3//BJawRC5JI2W0CzgVMcVKLZYTdjdBIKMTH8Bn5N0TQOXNkCvLc3SSAvFBznrwe2rIpHg0JHZUiuNEW34A6jzf4QbFkVTK8S7zl6yl/kuce2N/Hx/Z4qw8B54IlcP4in0++r5KeoSyVLkOtg8+3vLcesQ=
+
+    branches:
+      - master
+script:
+  # other script steps might be done before running the actual analysis
+  - ./gradlew connectedCheck
+  - sonar-scanner
