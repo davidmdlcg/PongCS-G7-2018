@@ -1,4 +1,5 @@
 language: android
+dist: trusty
 android:
   components:
   - build-tools-26.0.2
@@ -38,6 +39,9 @@ addons:
     token:
       secure: ppByHxIINheS2UmjNIUAX7KH/QvTG0mR4RW/RqE0tzBTIDUVRQiW5z7jTZTZdr8lWG5cWDpiHjKh7a6J0kGWSjAq2Qbg2x8D14egCKu4Oq7WYaa4HI6KMVjkH1CWJSfX/yPQda03NBRfuarkeDfUm8ZQIp9ydH8EiTvF3jh6bGnhV5O4gTVRWNWO0Ow0K51WIahC8zMHe3Zmj/7X2BBHv3vQe1axN/SfBNwFIZniamZDM0rZIxi8fuiLZoPBdi0WsAAG7HzLcnyCbhpLY9RO+c8aBL2z1a7N/RJlg12Vl/Peaxse6dfieq/bQfKZUFLWt8Ekhy8Q2X0nMouwF8g6k6wouig6LFHsiEUvRYZWYsXp85TL+gILut0AWbm1OaGcbdkW00naYEXJZ9uMRVfWtGV9ELGvRDNa/Mf2V2cvbSzTXgZmsaNSMjhtonaYWGvlxX8SYpHEmEGg99Q+sFbWzvJO8qUoBULD3R5vLjh4WfzsaMVhcSbbenI1/8LGXInRyw1B5Hd5DdpdnrwQc3//BJawRC5JI2W0CzgVMcVKLZYTdjdBIKMTH8Bn5N0TQOXNkCvLc3SSAvFBznrwe2rIpHg0JHZUiuNEW34A6jzf4QbFkVTK8S7zl6yl/kuce2N/Hx/Z4qw8B54IlcP4in0++r5KeoSyVLkOtg8+3vLcesQ=
 
+    branches:
+      - master
 script:
   # other script steps might be done before running the actual analysis
-  - ./gradlew connectedCheck sonarqube
+  - ./gradlew connectedCheck
+  - sonar-scanner
