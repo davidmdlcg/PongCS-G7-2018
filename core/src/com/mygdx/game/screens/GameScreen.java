@@ -3,10 +3,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.mygdx.game.gameworld.GameRenderer;
 import com.mygdx.game.gameworld.GameWorld;
-import com.mygdx.game.objects.Barra;
-import com.mygdx.game.objects.Circulo;
-
-import java.util.LinkedList;
 
 public class GameScreen implements Screen{
 
@@ -20,7 +16,6 @@ public class GameScreen implements Screen{
         world = new GameWorld();
         renderer = new GameRenderer(world,screenWidth,screenHeight);
 
-
     }
 
     @Override
@@ -31,31 +26,37 @@ public class GameScreen implements Screen{
 
     @Override
     public void show() {
+        // No es necesario hacer nada es este estado de la aplicacion
 
     }
 
     @Override
     public void resize(int width, int height) {
+        // No es necesario hacer nada es este estado de la aplicacion
 
     }
 
     @Override
     public void pause() {
+        // No es necesario hacer nada es este estado de la aplicacion
 
     }
 
     @Override
     public void resume() {
+        // No es necesario hacer nada es este estado de la aplicacion
 
     }
 
     @Override
     public void hide() {
+        // No es necesario hacer nada es este estado de la aplicacion
 
     }
 
     @Override
     public void dispose() {
+        // No es necesario hacer nada es este estado de la aplicacion
 
     }
 }
