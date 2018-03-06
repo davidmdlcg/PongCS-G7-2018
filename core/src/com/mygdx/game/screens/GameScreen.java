@@ -20,10 +20,7 @@ public class GameScreen implements Screen{
         world = new GameWorld();
         renderer = new GameRenderer(world,screenWidth,screenHeight);
 
-        LinkedList<Barra> barras = world.getBarrasList();
 
-        Barra bar = world.getBar();
-        Circulo bol = world.getBol();
     }
 
     @Override
