@@ -13,7 +13,6 @@ import java.util.LinkedList;
 
 public class GameWorld extends ApplicationAdapter{
 
-    private int width;
     private int height;
     private Barra bar;
     private Circulo bol;
@@ -25,9 +24,9 @@ public class GameWorld extends ApplicationAdapter{
 
 
     public GameWorld(){
-        this.width = Gdx.graphics.getWidth();
+        int width = Gdx.graphics.getWidth();
         this.height = Gdx.graphics.getHeight();
-        anchoB=this.width/70;
+        anchoB= width /70;
         anchoH=this.height/6;
 
         //
@@ -38,7 +37,7 @@ public class GameWorld extends ApplicationAdapter{
         this.bar = new Barra(anchoB,anchoH);
 
 /*crea la bola le pasa --orden-- (radio de la bola, la pala, altura de la pala*/
-        this.bol= new Circulo((this.height+this.width)/80);
+        this.bol= new Circulo((this.height+ width)/80);
     }
 
     public void update(float delta) {
