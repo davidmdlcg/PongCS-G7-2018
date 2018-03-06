@@ -1,25 +1,25 @@
 package com.mygdx.game.gameworld;
 
-    import com.badlogic.gdx.ApplicationAdapter;
-    import com.badlogic.gdx.Gdx;
-    import com.badlogic.gdx.graphics.Color;
-    import com.badlogic.gdx.graphics.GL20;
-    import com.badlogic.gdx.graphics.OrthographicCamera;
-    import com.badlogic.gdx.graphics.Texture;
-    import com.badlogic.gdx.graphics.g2d.BitmapFont;
-    import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-    import com.badlogic.gdx.graphics.g2d.TextureRegion;
-    import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-    import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-    import com.badlogic.gdx.scenes.scene2d.InputEvent;
-    import com.badlogic.gdx.scenes.scene2d.InputListener;
-    import com.badlogic.gdx.scenes.scene2d.Stage;
-    import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-    import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-    import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
-    import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-    import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-    import com.mygdx.game.objects.Barra;
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.mygdx.game.objects.Barra;
 
 public class GameRenderer extends ApplicationAdapter{
     private GameWorld myWorld;
@@ -35,6 +35,7 @@ public class GameRenderer extends ApplicationAdapter{
     public GameRenderer(GameWorld world, int width, int hieght){
         this.width=width;
         myWorld = world;
+        TextureRegion textureRegion;
         OrthographicCamera cam = new OrthographicCamera();
         cam.setToOrtho(true, width, hieght);
         shapeRenderer = new ShapeRenderer();
@@ -66,16 +67,17 @@ public class GameRenderer extends ApplicationAdapter{
 
         //make button
         Texture myTexture = new Texture("data/boton.png");
-        com.badlogic.gdx.graphics.g2d.TextureRegion textureRegion = new TextureRegion(myTexture);
+        textureRegion = new TextureRegion(myTexture);
         TextureRegionDrawable texRegionDrawable = new TextureRegionDrawable(textureRegion);
-        ImageButton button = new ImageButton(texRegionDrawable);
-        button.setBounds(width-150,20,150,150);
+        ImageButton button = new ImageButton(texRegionDrawable); //Set the button up
+        button.setBounds((float)width-150,20,150,150);
 
         //disparar
         button.addListener(new InputListener() {
+            @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.log("", "Click");
-                myWorld.Disparo();
+                myWorld.disparo();
                 return true;
             }
         });
@@ -89,41 +91,65 @@ public class GameRenderer extends ApplicationAdapter{
 
 
     }
+    @Override
     public void render() {
-        //dibujamos el fondo negro
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //dibujamos el rectangulo
-        shapeRenderer.begin(ShapeType.Filled);
-        shapeRenderer.setColor(87 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
+        ponerFondoNegro();
+        pintarGraficos();
+        moverPalaSegunPad();
+    }
 
-        //dibujamos el rectangulo desde world
-        shapeRenderer.rect(myWorld.getBar().getX(), myWorld.getBar().getY(), myWorld.getBar().getWidth(), myWorld.getBar().getHeight());
-        //seleccionamos el color y la dibujamos la bola
-        shapeRenderer.setColor(myWorld.getBol().getBalColor());
-        shapeRenderer.circle(myWorld.getBol().getPosition().x,myWorld.getBol().getPosition().y,myWorld.getBol().getRadio());
-        //dibujamos la bala
+    private void moverPalaSegunPad() {
+        myWorld.getBar().setX(myWorld.getBar().getX() + touchpad.getKnobPercentX()*this.width/80);
+        myWorld.getBar().setY(myWorld.getBar().getY() - touchpad.getKnobPercentY()*this.width/80);
+    }
+
+    private void pintarGraficos() {
+        shapeRenderer.begin(ShapeType.Filled);
+        pintarPala();
+        pintarPelota();
+        pintarBalas();
+        shapeRenderer.end();
+        pintarTextos();
+        pintarVirtualPad();
+    }
+
+    private void pintarVirtualPad() {
+        stage.act(Gdx.graphics.getDeltaTime());
+        stage.draw();
+    }
+
+    private void pintarTextos() {
+        String vidas = myWorld.getVida() + "";
+        batch.begin();
+        font.setColor(Color.GREEN);
+        font.getData().setScale(3,3);
+        font.draw(batch,"DisparosLeft "+vidas,(float)width/((float)5/2),50);
+        batch.end();
+    }
+
+    private void pintarBalas() {
         shapeRenderer.setColor(Color.RED);
         for (Barra bar: myWorld.getBarrasList()){
             shapeRenderer.rect(bar.getX(), bar.getY(), bar.getWidth(), bar.getHeight());
 
         }
+    }
 
-        shapeRenderer.end();
-        String vidas = myWorld.getVida() + "";
-        batch.begin();
-        font.setColor(Color.GREEN);
-        font.getData().setScale(3,3);
-        font.draw(batch,"DisparosLeft "+vidas,width/(5/2),50);
-        batch.end();
+    private void pintarPelota() {
+        shapeRenderer.setColor(myWorld.getBol().getBalColor());
+        shapeRenderer.circle(myWorld.getBol().getPosition().x,myWorld.getBol().getPosition().y,myWorld.getBol().getRadio());
+    }
 
-        //dibujamos le pad
-        stage.act(Gdx.graphics.getDeltaTime());
-        stage.draw();
+    private void pintarPala() {
+        shapeRenderer.setColor(87 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
 
-        //Move pala with TouchPad
-        myWorld.getBar().setX(myWorld.getBar().getX() + touchpad.getKnobPercentX()*this.width/80);
-        myWorld.getBar().setY(myWorld.getBar().getY() - touchpad.getKnobPercentY()*this.width/80);
+        //dibujamos el rectangulo desde world
+        shapeRenderer.rect(myWorld.getBar().getX(), myWorld.getBar().getY(), myWorld.getBar().getWidth(), myWorld.getBar().getHeight());
+    }
+
+    private void ponerFondoNegro(){
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 
 }
