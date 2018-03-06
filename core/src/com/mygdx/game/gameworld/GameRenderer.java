@@ -26,20 +26,10 @@ package com.mygdx.game.gameworld;
 
 public class GameRenderer extends ApplicationAdapter{
     private GameWorld myWorld;
-    private OrthographicCamera cam;
     private ShapeRenderer shapeRenderer;
     private int width;
-    private int hieght;
     private Touchpad touchpad;
-    private Touchpad.TouchpadStyle touchpadStyle;
-    private Skin touchpadSkin;
-    private Drawable touchBackground;
-    private Drawable touchKnob;
     private Stage stage;
-    private ImageButton button;
-    private TextureRegion TextureRegion;
-    private TextureRegionDrawable TexRegionDrawable;
-    private Texture myTexture;
     private SpriteBatch batch;
     private BitmapFont font;
 
@@ -47,9 +37,8 @@ public class GameRenderer extends ApplicationAdapter{
 
     public GameRenderer(GameWorld world, int width, int hieght){
         this.width=width;
-        this.hieght=hieght;
         myWorld = world;
-        cam = new OrthographicCamera();
+        OrthographicCamera cam = new OrthographicCamera();
         cam.setToOrtho(true, width, hieght);
         shapeRenderer = new ShapeRenderer();
         shapeRenderer.setProjectionMatrix(cam.combined);
@@ -60,16 +49,16 @@ public class GameRenderer extends ApplicationAdapter{
 
 
         //Create a touchpad skin
-        touchpadSkin = new Skin();
+        Skin touchpadSkin = new Skin();
         //Set background image
         touchpadSkin.add("touchBackground", new Texture("data/touchBackground.png"));
         //Set knob image
         touchpadSkin.add("touchKnob", new Texture("data/touchKnob.png"));
         //Create TouchPad Style
-        touchpadStyle = new Touchpad.TouchpadStyle();
+        Touchpad.TouchpadStyle touchpadStyle = new Touchpad.TouchpadStyle();
         //Create Drawable's from TouchPad skin
-        touchBackground = touchpadSkin.getDrawable("touchBackground");
-        touchKnob = touchpadSkin.getDrawable("touchKnob");
+        Drawable touchBackground = touchpadSkin.getDrawable("touchBackground");
+        Drawable touchKnob = touchpadSkin.getDrawable("touchKnob");
         //Apply the Drawables to the TouchPad Style
         touchpadStyle.background = touchBackground;
         touchpadStyle.knob = touchKnob;
@@ -79,10 +68,10 @@ public class GameRenderer extends ApplicationAdapter{
         touchpad.setBounds(20, 20, 300, 300);
 
         //make button
-        myTexture = new Texture("data/boton.png");
-        TextureRegion = new TextureRegion(myTexture);
-        TexRegionDrawable = new TextureRegionDrawable(TextureRegion);
-        button = new ImageButton(TexRegionDrawable); //Set the button up
+        Texture myTexture = new Texture("data/boton.png");
+        com.badlogic.gdx.graphics.g2d.TextureRegion textureRegion = new TextureRegion(myTexture);
+        TextureRegionDrawable texRegionDrawable = new TextureRegionDrawable(textureRegion);
+        ImageButton button = new ImageButton(texRegionDrawable);
         button.setBounds(width-150,20,150,150);
 
         //disparar
