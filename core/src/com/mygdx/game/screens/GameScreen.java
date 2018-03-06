@@ -13,10 +13,7 @@ public class GameScreen implements Screen{
 
     private GameWorld world;
     private GameRenderer renderer;
-    private Barra bar;
-    private Circulo bol;
     private InputHandler inputHandler;
-    private LinkedList<Barra> barras;
 
     public GameScreen() {
         int screenWidth = Gdx.graphics.getWidth();
@@ -25,10 +22,10 @@ public class GameScreen implements Screen{
         world = new GameWorld();
         renderer = new GameRenderer(world,screenWidth,screenHeight);
 
-        barras=world.getBarrasList();
+        LinkedList<Barra> barras = world.getBarrasList();
 
-        bar = world.getBar();
-        bol = world.getBol();
+        Barra bar = world.getBar();
+        Circulo bol = world.getBol();
     }
 
     @Override
