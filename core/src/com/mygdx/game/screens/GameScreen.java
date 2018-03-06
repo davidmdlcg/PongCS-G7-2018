@@ -3,7 +3,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.mygdx.game.gameworld.GameRenderer;
 import com.mygdx.game.gameworld.GameWorld;
-import com.mygdx.game.helper.InputHandler;
 import com.mygdx.game.objects.Barra;
 import com.mygdx.game.objects.Circulo;
 
@@ -13,7 +12,6 @@ public class GameScreen implements Screen{
 
     private GameWorld world;
     private GameRenderer renderer;
-    private InputHandler inputHandler;
 
     public GameScreen() {
         int screenWidth = Gdx.graphics.getWidth();
