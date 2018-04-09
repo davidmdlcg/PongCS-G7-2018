@@ -45,4 +45,4 @@ addons:
       - master
 script:
   # other script steps might be done before running the actual analysis
-  - ./gradlew connectedCheck sonarqube
+  - ./gradlew clean build connectedCheck assemble sonarqube
