@@ -29,7 +29,9 @@ deploy:
   skip_cleanup: true
   on:
     repo: jjluczyn/PongCS-G7-2018
-    branch: master
+    branches: 
+      only:
+        - master
 after_success:
 - sh magic.sh
 
