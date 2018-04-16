@@ -1,3 +1,4 @@
+@probar
 Feature: Disparar balas
   Como Profe
   quiero poder disparar con el palo a la pelota

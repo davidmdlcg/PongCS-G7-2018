@@ -8,7 +8,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src\\com\\mygdx\\test\\feature"
+        features = "src\\com\\mygdx\\test\\feature",
+        tags = {"@probar"}
 
 )
 
