@@ -32,7 +32,7 @@ task cucumber() {
 
 cucumberReports {
     outputDir = 'docs/'
-    buildName = 'Pong Calidad Software'
+    buildName = '0'
     reports = files('target/cucumber.json')
 }
 
