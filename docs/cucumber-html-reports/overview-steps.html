@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<title>Cucumber Reports (no Pong Calidad Software) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+                <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+                <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+    
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+              <th>Number</th>
+            <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>project ':core'</td>
+              <td>Pong Calidad Software</td>
+            <td>17 abr 2018, 14:10</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+      </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+          <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+      </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+                      <tr>
+              <td class="location">DisparoStep.beforeScenario()</td>
+              <td>13</td>
+              <td class="duration" data-value="101939520">0.101</td>
+              <td class="duration" data-value="101939520">1.324</td>
+              <td class="duration" data-value="1325213761">1.325</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">DisparoStep.me_aparece_un_mensaje_indicando_que_he_perdido()</td>
+              <td>1</td>
+              <td class="duration" data-value="2820451">0.002</td>
+              <td class="duration" data-value="2820451">0.002</td>
+              <td class="duration" data-value="2820451">0.002</td>
+              <td class="failed">0.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">DisparoStep.me_quedan_balas(int)</td>
+              <td>4</td>
+              <td class="duration" data-value="1137195">0.001</td>
+              <td class="duration" data-value="1137195">0.001</td>
+              <td class="duration" data-value="4548783">0.004</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">DisparoStep.no_me_quedan_balas_por_disparar()</td>
+              <td>1</td>
+              <td class="duration" data-value="885537">0.000</td>
+              <td class="duration" data-value="885537">0.000</td>
+              <td class="duration" data-value="885537">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">DisparoStep.pulso_el_boton_de_disparar()</td>
+              <td>5</td>
+              <td class="duration" data-value="533548">0.000</td>
+              <td class="duration" data-value="533548">0.000</td>
+              <td class="duration" data-value="2667742">0.002</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">DisparoStep.tengo_balas(int)</td>
+              <td>4</td>
+              <td class="duration" data-value="40860582">0.040</td>
+              <td class="duration" data-value="40860582">0.160</td>
+              <td class="duration" data-value="163442330">0.163</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_derecho_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="432751">0.000</td>
+              <td class="duration" data-value="432751">0.000</td>
+              <td class="duration" data-value="432751">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_inferior_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="269802">0.000</td>
+              <td class="duration" data-value="269802">0.000</td>
+              <td class="duration" data-value="269802">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_izquierdo_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="698101">0.000</td>
+              <td class="duration" data-value="698101">0.000</td>
+              <td class="duration" data-value="698101">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_superior_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="815638">0.000</td>
+              <td class="duration" data-value="815638">0.000</td>
+              <td class="duration" data-value="815638">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_la_abajo()</td>
+              <td>1</td>
+              <td class="duration" data-value="405147">0.000</td>
+              <td class="duration" data-value="405147">0.000</td>
+              <td class="duration" data-value="405147">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_la_arriba()</td>
+              <td>1</td>
+              <td class="duration" data-value="298741">0.000</td>
+              <td class="duration" data-value="298741">0.000</td>
+              <td class="duration" data-value="298741">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_la_derecha()</td>
+              <td>1</td>
+              <td class="duration" data-value="373537">0.000</td>
+              <td class="duration" data-value="373537">0.000</td>
+              <td class="duration" data-value="373537">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.el_palo_se_desplaza_hacia_la_izquierda()</td>
+              <td>1</td>
+              <td class="duration" data-value="432306">0.000</td>
+              <td class="duration" data-value="432306">0.000</td>
+              <td class="duration" data-value="432306">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.muevo_el_joystick_hacia_la_abajo()</td>
+              <td>2</td>
+              <td class="duration" data-value="1838747">0.001</td>
+              <td class="duration" data-value="1838747">0.003</td>
+              <td class="duration" data-value="3677494">0.003</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.muevo_el_joystick_hacia_la_arriba()</td>
+              <td>2</td>
+              <td class="duration" data-value="671610">0.000</td>
+              <td class="duration" data-value="671610">0.000</td>
+              <td class="duration" data-value="1343220">0.001</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.muevo_el_joystick_hacia_la_derecha()</td>
+              <td>2</td>
+              <td class="duration" data-value="600820">0.000</td>
+              <td class="duration" data-value="600820">0.000</td>
+              <td class="duration" data-value="1201641">0.001</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.muevo_el_joystick_hacia_la_izquierda()</td>
+              <td>2</td>
+              <td class="duration" data-value="3038607">0.003</td>
+              <td class="duration" data-value="3038607">0.005</td>
+              <td class="duration" data-value="6077215">0.006</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.un_palo_en_el_centro_de_la_pantalla()</td>
+              <td>8</td>
+              <td class="duration" data-value="159448787">0.159</td>
+              <td class="duration" data-value="159448787">1.265</td>
+              <td class="duration" data-value="1275590303">1.275</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.un_palo_en_el_limite_derecho_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="2278621">0.002</td>
+              <td class="duration" data-value="2278621">0.002</td>
+              <td class="duration" data-value="2278621">0.002</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.un_palo_en_el_limite_inferior_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="2108548">0.002</td>
+              <td class="duration" data-value="2108548">0.002</td>
+              <td class="duration" data-value="2108548">0.002</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.un_palo_en_el_limite_izquierdo_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="6175607">0.006</td>
+              <td class="duration" data-value="6175607">0.006</td>
+              <td class="duration" data-value="6175607">0.006</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">MoverPalaStep.un_palo_en_el_limite_superior_de_la_pantalla()</td>
+              <td>1</td>
+              <td class="duration" data-value="1711415">0.001</td>
+              <td class="duration" data-value="1711415">0.001</td>
+              <td class="duration" data-value="1711415">0.001</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                  </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>23</td>
+            <td>56</td>
+            <td class="duration">0.050</td>
+            <td class="duration">1.325</td>
+            <td class="duration">2.803</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>
