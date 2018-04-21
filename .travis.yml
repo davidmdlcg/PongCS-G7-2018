@@ -1,23 +1,15 @@
 language: android
-jdk: oraclejdk8
 dist: trusty
 android:
   components:
-  - platform-tools
-  - tools
   - build-tools-26.0.2
   - android-26
   - extra
   - sys-img-armeabi-v7a-android-tv-l
   - add-on
-  - extra-android-support
-  - extra-android-m2repository
-  - extra-google-m2repository
-  - sys-img-armeabi-v7a-addon-google_apis-google-26
+  - extra
 before_install:
-  - chmod +x gradlew
-  - rvm install 2.0.0
-  - gem install calabash-android
+- chmod +x gradlew
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -26,8 +18,6 @@ cache:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
   - "$HOME/.android/build-cache"
-  - "$HOME/.gradle/daemon"
-  - "$HOME/.gradle/native"
 notifications:
   email: true
 
@@ -53,19 +43,6 @@ addons:
 
     branches:
       - master
-      
-env:
-  global:
-    # install timeout in minutes (2 minutes by default)
-    - ADB_INSTALL_TIMEOUT=8
-      
-before_script:
-  - echo no | android create avd --force --name test --target android-26 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window -gpu off &
-  - android-wait-for-emulator
-  - adb devices
-  - adb shell input keyevent 82 &
-  
 script:
   # other script steps might be done before running the actual analysis
   - ./gradlew clean build connectedCheck assemble sonarqube
