@@ -17,7 +17,13 @@ if [ "$TRAVIS_BRANCH" = "$BRANCH" ]; then
       git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
       git push origin --tags
       git fetch origin
-
+      
+      # Upload doc file
+      echo "Magic: Commiting changes to project"
+      git add .
+      git commit -m "[skip ci] TRAVIS Updated cucumber report"
+      echo "Magic: pushing changes"
+      git push      
       echo -e "Magic done.\n"
   fi
   fi
