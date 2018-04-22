@@ -63,6 +63,6 @@ before_script:
   - sleep 3 # give screen some time to become unlocked
   - ./gradlew clean assembleDebug -PdisablePreDex --continue --stacktrace
   
-  env:
-    global:
-    - ADB_INSTALL_TIMEOUT=8
+env:
+  global:
+  - ADB_INSTALL_TIMEOUT=8
