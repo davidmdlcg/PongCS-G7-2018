@@ -64,5 +64,5 @@ before_script:
   - ./gradlew clean assembleDebug -PdisablePreDex --continue --stacktrace
   
   env:
-  global:
+    global:
     - ADB_INSTALL_TIMEOUT=8
