@@ -5,15 +5,15 @@ android:
   - build-tools-23.0.3
   - android-23
   - extra
-  - sys-img-armeabi-v7a-android-23
+  #- sys-img-armeabi-v7a-android-23
   - add-on
-  - extra
-  - extra-google-google_play_services
-  - extra-google-m2repository
-  - extra-android-m2repository
-  - extra-android-support
-  - sys-img-armeabi-v7a-google_apis-23
-  - addon-google_apis-google-23
+  #- extra
+  #- extra-google-google_play_services
+  #- extra-google-m2repository
+  #- extra-android-m2repository
+  #- extra-android-support
+  #- sys-img-armeabi-v7a-google_apis-23
+  #- addon-google_apis-google-23
   licenses:
   - android-sdk-license-.+
   - '.+'
