@@ -23,7 +23,7 @@ if [ "$TRAVIS_BRANCH" = "$BRANCH" ]; then
       git add .
       git commit -m "[skip ci] TRAVIS Updated cucumber report"
       echo "Magic: pushing changes"
-      git push      
+      git push origin master     
       echo -e "Magic done.\n"
   fi
   fi
