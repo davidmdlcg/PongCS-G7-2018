@@ -14,6 +14,9 @@ android:
   - extra-android-support
   - sys-img-armeabi-v7a-google_apis-23
   - addon-google_apis-google-23
+  licenses:
+  - android-sdk-license-.+
+  - '.+'
 before_install:
 - chmod +x gradlew
 - sudo apt-get install ruby-full
