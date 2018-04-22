@@ -15,15 +15,14 @@ if [ "$TRAVIS_BRANCH" = "$BRANCH" ]; then
 
       # Add tag and push to master.
       git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
-      git push origin --tags
-      git fetch origin
+      #git fetch origin
       
       # Upload doc file
       echo "Magic: Commiting changes to project"
       git add .
       git commit -m "[skip ci] TRAVIS Updated cucumber report"
       echo "Magic: pushing changes"
-      git push https://ExtremoBlando:$MAGIC_TOKEN@github.com/jjluczyn/PongCS-G7-2018 master     
+      git push https://ExtremoBlando:$MAGIC_TOKEN@github.com/jjluczyn/PongCS-G7-2018 master --tags    
       echo -e "Magic done.\n"
   fi
   fi
