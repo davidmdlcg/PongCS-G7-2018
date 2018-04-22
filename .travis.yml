@@ -2,18 +2,18 @@ language: android
 dist: trusty
 android:
   components:
-  - build-tools-26.0.2
-  - android-26
+  - build-tools-23.0.3
+  - android-23
   - extra
-  - sys-img-armeabi-v7a-android-26
+  - sys-img-armeabi-v7a-android-23
   - add-on
   - extra
   - extra-google-google_play_services
   - extra-google-m2repository
   - extra-android-m2repository
   - extra-android-support
-  - sys-img-armeabi-v7a-google_apis-26
-  - addon-google_apis-google-26
+  - sys-img-armeabi-v7a-google_apis-23
+  - addon-google_apis-google-23
 before_install:
 - chmod +x gradlew
 - sudo apt-get install ruby-full
