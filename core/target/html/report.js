@@ -276,7 +276,7 @@ formatter.match({
   "location": "DisparoStep.me_aparece_un_mensaje_indicando_que_he_perdido()"
 });
 formatter.result({
-  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat com.mygdx.test.step.DisparoStep.me_aparece_un_mensaje_indicando_que_he_perdido(DisparoStep.java:75)\r\n\tat ✽.me aparece un mensaje indicando que he perdido(src/com/mygdx/test/feature/Disparo.feature:22)\r\n",
+  "error_message": "cucumber.api.PendingException: TODO: implement me\n\tat com.mygdx.test.step.DisparoStep.me_aparece_un_mensaje_indicando_que_he_perdido(DisparoStep.java:75)\n\tat ✽.me aparece un mensaje indicando que he perdido(src/com/mygdx/test/feature/Disparo.feature:22)\n",
   "status": "pending"
 });
 formatter.uri("src/com/mygdx/test/feature/MoverPala.feature");
@@ -596,7 +596,7 @@ formatter.match({
   "location": "MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_izquierdo_de_la_pantalla()"
 });
 formatter.result({
-  "error_message": "java.lang.AssertionError: expected:\u003c1440.0\u003e but was:\u003c1.0\u003e\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\r\n\tat org.junit.Assert.assertEquals(Assert.java:575)\r\n\tat org.junit.Assert.assertEquals(Assert.java:700)\r\n\tat com.mygdx.test.step.MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_izquierdo_de_la_pantalla(MoverPalaStep.java:245)\r\n\tat ✽.el palo se desplaza hacia el borde izquierdo de la pantalla(src/com/mygdx/test/feature/MoverPala.feature:34)\r\n",
+  "error_message": "java.lang.AssertionError: expected:\u003c1440.0\u003e but was:\u003c1.0\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\n\tat org.junit.Assert.assertEquals(Assert.java:575)\n\tat org.junit.Assert.assertEquals(Assert.java:700)\n\tat com.mygdx.test.step.MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_izquierdo_de_la_pantalla(MoverPalaStep.java:245)\n\tat ✽.el palo se desplaza hacia el borde izquierdo de la pantalla(src/com/mygdx/test/feature/MoverPala.feature:34)\n",
   "status": "failed"
 });
 formatter.background({
@@ -713,7 +713,7 @@ formatter.match({
   "location": "MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_superior_de_la_pantalla()"
 });
 formatter.result({
-  "error_message": "java.lang.AssertionError: expected:\u003c2560.0\u003e but was:\u003c18.44714\u003e\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\r\n\tat org.junit.Assert.assertEquals(Assert.java:575)\r\n\tat org.junit.Assert.assertEquals(Assert.java:700)\r\n\tat com.mygdx.test.step.MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_superior_de_la_pantalla(MoverPalaStep.java:280)\r\n\tat ✽.el palo se desplaza hacia el borde superior de la pantalla(src/com/mygdx/test/feature/MoverPala.feature:44)\r\n",
+  "error_message": "java.lang.AssertionError: expected:\u003c2560.0\u003e but was:\u003c18.44714\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\n\tat org.junit.Assert.assertEquals(Assert.java:575)\n\tat org.junit.Assert.assertEquals(Assert.java:700)\n\tat com.mygdx.test.step.MoverPalaStep.el_palo_se_desplaza_hacia_el_borde_superior_de_la_pantalla(MoverPalaStep.java:280)\n\tat ✽.el palo se desplaza hacia el borde superior de la pantalla(src/com/mygdx/test/feature/MoverPala.feature:44)\n",
   "status": "failed"
 });
 });
