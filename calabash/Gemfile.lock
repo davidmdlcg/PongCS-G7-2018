@@ -47,6 +47,7 @@ PLATFORMS
 DEPENDENCIES
   calabash-android
   cucumber
+  json
 
 BUNDLED WITH
    1.16.1
