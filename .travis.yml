@@ -69,7 +69,7 @@ before_script:
 script:
   - cd calabash
   - keytool -genkey -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
-  #- bundle exec calabash-android resign android-release-unsigned.apk
+  - bundle exec calabash-android resign android-release-unsigned.apk
   - bundle exec calabash-android run android-release-unsigned.apk
   - cd ..
   # other script steps might be done before running the actual analysis
