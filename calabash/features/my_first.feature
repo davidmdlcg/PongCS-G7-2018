@@ -4,11 +4,11 @@ Feature: Shoot from different positions
     So that i can hit the ball more easily
 
     Background: game start
+		Given I wait for the "AndroidLauncher" screen to appear
         Given the game has started
         
 	Scenario: Move bat up
 		Then I click on screen 50% from the left and 25% from the top
-		Then I drag from 50% from the left and 50% from the top to 50% from the left and 25% from the top moving with 100 steps
 		Then I wait
 		
 	Scenario: Wait
