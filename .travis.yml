@@ -68,8 +68,8 @@ before_script:
       
 script:
   - cd calabash
-  - bundle exec calabash-android resign android-release-unsigned.apk
-  - bundle ecec calabash-android run android-release-unsigned.apk
+  #- bundle exec calabash-android resign android-release-unsigned.apk
+  - bundle exec calabash-android run android-release-unsigned.apk
   - cd ..
   # other script steps might be done before running the actual analysis
   - ./gradlew clean build connectedCheck assemble sonarqube
